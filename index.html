@@ -231,47 +231,182 @@
     </div>
   </section>
 
+  <!-- PACKAGES -->
+  <section id="packages" class="section section-light" data-parallax-bg>
+    <div class="wrap">
+      <h2 class="section-title">Our Packages</h2>
+      <p class="muted">Flexible options for family gatherings, weddings, and premium event experiences.</p>
 
+      <div id="packagesGrid" class="packages-grid"></div>
+    </div>
+  </section>
+
+  <!-- EVENT COST CALCULATOR -->
+  <section id="calculator" class="section section-cream">
+    <div class="wrap">
+      <h2 class="section-title">Event Cost Calculator</h2>
+      <p class="muted">Get a quick estimate based on guest count and selected menu items.</p>
+
+      <div class="calculator-card">
+        <div class="calculator-grid">
+          <div class="calc-field">
+            <label for="guestCount">Number of Guests</label>
+            <select id="guestCount" class="calc-select">
+              <option value="50">50</option>
+              <option value="100">100</option>
+              <option value="200">200</option>
+              <option value="300">300</option>
+              <option value="400">400</option>
+              <option value="500" selected>500</option>
+              <option value="600">600</option>
+              <option value="700">700</option>
+              <option value="800">800</option>
+              <option value="900">900</option>
+              <option value="1000">1000</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="eventType">Event Type</label>
+            <select id="eventType" class="calc-select">
+              <option value="Wedding">Wedding</option>
+              <option value="Mehndi">Mehndi</option>
+              <option value="Corporate">Corporate</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="riceItem">Rice Item (0-1)</label>
+            <select id="riceItem" class="calc-select">
+              <option value="">None</option>
+              <option value="Chicken Biryani">Chicken Biryani</option>
+              <option value="Beef Biryani">Beef Biryani</option>
+              <option value="Yakhni Pulao">Yakhni Pulao</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="gravyItem">Gravy Item (0-1)</label>
+            <select id="gravyItem" class="calc-select">
+              <option value="">None</option>
+              <option value="Chicken Qorma">Chicken Qorma</option>
+              <option value="Chicken Handi">Chicken Handi</option>
+              <option value="Mutton Kunna">Mutton Kunna</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="bbqItem">BBQ Item (Select 1)</label>
+            <select id="bbqItem" class="calc-select">
+              <option value="Chicken Tikka">Chicken Tikka</option>
+              <option value="Chicken Malai Boti">Chicken Malai Boti</option>
+              <option value="Seekh Kebab">Seekh Kebab</option>
+            </select>
+          </div>
+
+          <div class="calc-field">
+            <label for="dessertItem">Dessert Item (Select 1)</label>
+            <select id="dessertItem" class="calc-select">
+              <option value="Ras Malai">Ras Malai</option>
+              <option value="Lab e Shereen">Lab e Shereen</option>
+              <option value="Kulfi">Kulfi</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-result-wrap">
+          <p class="calc-result-label">Estimated Total Cost</p>
+          <p id="estimatedTotal" class="calc-result-value">Rs. 0</p>
+          <a id="whatsappQuoteBtn" class="btn btn-primary calc-quote-btn" href="https://wa.me/923008292033" target="_blank"
+            rel="noopener noreferrer">Get Exact Quote on WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- GALLERY -->
   <section id="gallery" class="section section-light" data-parallax-bg>
     <div class="wrap">
       <h2 class="section-title">Gallery</h2>
+      <div class="gallery-filters" id="galleryFilters">
+        <button type="button" class="gallery-filter active" data-filter="all">All</button>
+        <button type="button" class="gallery-filter" data-filter="wedding">Wedding</button>
+        <button type="button" class="gallery-filter" data-filter="mehndi">Mehndi</button>
+        <button type="button" class="gallery-filter" data-filter="corporate">Corporate</button>
+      </div>
       <div class="gallery-grid">
-        <!-- gallery thumbnails (click to open lightbox) -->
-        <img class="glight" src="assets/images/gallery6.jpg" alt="gallery6">
-        <img class="glight" src="assets/images/perHead11.jpg" alt="Perhead Offerings1">
-        <img class="glight" src="assets/images/perhead22.jpg" alt="Perhead Offerings2">
-        <img class="glight" src="assets/images/gallery2.jpeg" alt="gallery2">
-        <img class="glight" src="assets/images/List3.jpeg" alt="List3">
-        <img class="glight" src="assets/images/List2.jpeg" alt="List2">
-
-        <img class="glight" src="assets/images/softdrinks.jpg" alt="gallery1">
-
-        <!-- <img class="glight" src="assets/images/perhead1.jpg" alt="per-head1">
-        <img class="glight" src="assets/images/perhead2.jpg" alt="per-head2"> -->
-        <!-- <img class="glight"
-          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
-          alt="gallery4"> -->
-
-        <img class="glight" src="assets/images/Menus.jpeg" alt="Menus">
-        <img class="glight" src="assets/images/listOfitems.jpeg" alt="List">
-
-
-
+        <article class="gallery-item" data-category="wedding">
+          <img class="glight" src="assets/images/gallery6.jpg" alt="Wedding Event Setup">
+          <div class="gallery-overlay"><span>Wedding</span></div>
+        </article>
+        <article class="gallery-item" data-category="corporate">
+          <img class="glight" src="assets/images/perHead11.jpg" alt="Corporate Buffet">
+          <div class="gallery-overlay"><span>Corporate</span></div>
+        </article>
+        <article class="gallery-item" data-category="mehndi">
+          <img class="glight" src="assets/images/perhead22.jpg" alt="Mehndi Food Display">
+          <div class="gallery-overlay"><span>Mehndi</span></div>
+        </article>
+        <article class="gallery-item" data-category="wedding">
+          <img class="glight" src="assets/images/gallery2.jpeg" alt="Wedding Catering Service">
+          <div class="gallery-overlay"><span>Wedding</span></div>
+        </article>
+        <article class="gallery-item" data-category="corporate">
+          <img class="glight" src="assets/images/List3.jpeg" alt="Corporate Menu Setup">
+          <div class="gallery-overlay"><span>Corporate</span></div>
+        </article>
+        <article class="gallery-item" data-category="mehndi">
+          <img class="glight" src="assets/images/List2.jpeg" alt="Mehndi Dining Setup">
+          <div class="gallery-overlay"><span>Mehndi</span></div>
+        </article>
+        <article class="gallery-item" data-category="corporate">
+          <img class="glight" src="assets/images/softdrinks.jpg" alt="Corporate Refreshments">
+          <div class="gallery-overlay"><span>Corporate</span></div>
+        </article>
+        <article class="gallery-item" data-category="wedding">
+          <img class="glight" src="assets/images/Menus.jpeg" alt="Wedding Menu Display">
+          <div class="gallery-overlay"><span>Wedding</span></div>
+        </article>
+        <article class="gallery-item" data-category="mehndi">
+          <img class="glight" src="assets/images/listOfitems.jpeg" alt="Mehndi Dishes">
+          <div class="gallery-overlay"><span>Mehndi</span></div>
+        </article>
       </div>
     </div>
   </section>
 
 
-  <!-- TESTIMONIALS (New Section) -->
+  <!-- TESTIMONIALS -->
   <section id="testimonials" class="section section-cream">
     <div class="wrap">
       <h2 class="section-title">What Our Clients Say</h2>
-      <blockquote>“Lavish Caterers made our wedding unforgettable. The food was outstanding and décor was flawless.” —
-        <strong>Ayesha & Imran</strong></blockquote>
-      <blockquote>“Professional, punctual, and delicious. Highly recommended for corporate events.” — <strong>Asher
-          Ansari.</strong></blockquote>
+      <div class="testimonials-carousel" id="testimonialsCarousel">
+        <button class="testimonial-arrow testimonial-prev" id="testimonialPrev" aria-label="Previous testimonial">&#10094;</button>
+        <div class="testimonial-track" id="testimonialTrack">
+          <article class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 star rating">★★★★★</div>
+            <p class="testimonial-text">“Lavish Caterers made our wedding unforgettable. The food was outstanding and décor was flawless.”</p>
+            <div class="testimonial-client">Ayesha & Imran</div>
+            <div class="testimonial-meta">Wedding • 450 Guests</div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 star rating">★★★★★</div>
+            <p class="testimonial-text">“Professional, punctual, and delicious. Highly recommended for corporate events.”</p>
+            <div class="testimonial-client">Asher Ansari</div>
+            <div class="testimonial-meta">Corporate Dinner • 280 Guests</div>
+          </article>
+
+          <article class="testimonial-card">
+            <div class="testimonial-rating" aria-label="5 star rating">★★★★★</div>
+            <p class="testimonial-text">“Excellent food quality and smooth service for our mehndi night. Guests loved every dish.”</p>
+            <div class="testimonial-client">Hiba Khan</div>
+            <div class="testimonial-meta">Mehndi • 320 Guests</div>
+          </article>
+        </div>
+        <button class="testimonial-arrow testimonial-next" id="testimonialNext" aria-label="Next testimonial">&#10095;</button>
+      </div>
+      <div class="testimonial-dots" id="testimonialDots" aria-label="Testimonials navigation"></div>
     </div>
   </section>
 
@@ -329,8 +464,10 @@
 
   <!-- Lightbox overlay -->
   <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightboxPrev" class="lightbox-nav lightbox-prev" aria-label="Previous image">&#10094;</button>
     <button id="lightboxClose" class="lightbox-close" aria-label="Close">&times;</button>
     <img id="lightboxImg" src="" alt="">
+    <button id="lightboxNext" class="lightbox-nav lightbox-next" aria-label="Next image">&#10095;</button>
   </div>
 
   <!-- Scripts -->
