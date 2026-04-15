@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Lavish Caterers & Decorators</title>
+
+  <!-- Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <meta name="description"
+    content="Lavish Caterers & Decorators — premium catering & event décor since 1990. Weddings, corporate events, family gatherings.">
+</head>
+
+<body>
+
+  <!-- Floating Book Button -->
+  <button id="bookFloat" class="book-float" aria-label="Book Now">Book Now</button>
+
+  <!-- Modal Contact -->
+  <div id="contactModal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <h3>Quick Inquiry</h3>
+      <!-- Replace FORM_ACTION with your Formspree endpoint (see instructions below) -->
+      <form id="contactForm" action="https://formspree.io/f/yourFormId" method="POST">
+        <label for="cname">Name</label>
+        <input id="cname" name="name" type="text" required>
+        <label for="cphone">Phone</label>
+        <input id="cphone" name="phone" type="tel">
+        <label for="cemail">Email</label>
+        <input id="cemail" name="email" type="email">
+        <label for="cmessage">Message</label>
+        <textarea id="cmessage" name="message" rows="4" required></textarea>
+        <button type="submit" class="btn primary">Send Inquiry</button>
+        <p class="muted small">Or WhatsApp: <a href="https://wa.me/923008292033" target="_blank">03008292033
+            (Farrukh)</a> • <a href="https://wa.me/923152497674" target="_blank">03152497674 (Owais)</a></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- NAV -->
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="#home" aria-label="Lavish Caterers home">
+        <!-- inline SVG logo (editable) -->
+        <svg id="logo" width="56" height="56" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true">
+          <circle cx="50" cy="50" r="48" fill="#7A1B2A" /> maroon
+          <path d="M30 60 C40 45,60 45,70 60" stroke="#D4AF37" stroke-width="4" fill="none" stroke-linecap="round" />
+          <text x="50" y="55" font-family="Playfair Display, serif" text-anchor="middle" fill="#D4AF37" font-size="18"
+            font-weight="700">LC</text>
+        </svg>
+        <div class="brand-text">
+          <div class="name">Lavish Caterers</div>
+          <div class="tag">& Decorators</div>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#home" class="nav-link">Home</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#menu" class="nav-link">Menu</a>
+        <a href="#gallery" class="nav-link">Gallery</a>
+        <a href="#faq" class="nav-link">FAQs</a>
+        <a href="#location" class="nav-link">Location</a>
+        <a href="#contact" class="nav-link contact-link" id="openContact">Contact</a>
+      </nav>
+
+      <button id="navToggle" class="nav-toggle" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <!-- HERO (parallax) -->
+  <section class="hero">
+    <div class="hero-inner" data-aos="fade-up">
+      <h1 class="hero-title">Lavish Catering & Décor That Leave Lasting Memories</h1>
+      <p class="hero-subtitle">
+        Founded in 1990 by Farrukh Alam Firdousi, Lavish Caterers delivers food and service that make events memorable.
+        From weddings to corporate functions, we craft dishes with care and serve them with warmth.
+      </p>
+      <div class="hero-buttons">
+        <a href="#menu" class="btn btn-primary">Explore Our Signature Menus</a>
+        <a href="#contact" class="btn btn-outline-light">Plan Your Event Today</a>
+      </div>
+      <div class="hero-trust">
+        <div><span>🎖</span> Over 30 Years of Experience</div>
+        <div><span>🍽</span> Custom Menus Available</div>
+        <div><span>🌟</span> 1000+ Events Hosted</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section section-light" data-parallax-bg>
+    <div class="wrap two-col about-grid">
+      <div class="about-text">
+        <h2>Our Story</h2>
+        <p class="lead">Since 1990, Lavish Caterers & Decorators has been making events memorable.
+          From weddings and family functions to corporate gatherings, we bring great food, smooth service, and a touch
+          of décor.</p>
+        <ul class="bullets">
+          <li>Custom menus for every event</li>
+          <li>Experienced event setup & on-site service</li>
+          <li>Dietary options & plating choices</li>
+        </ul>
+      </div>
+      <div class="about-photo">
+        <img src="assets/images/Team.jpg" alt="Team preparing event">
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section id="menu" class="section section-cream" data-parallax-bg>
+    <div class="wrap">
+      <h2 class="section-title">Our Menu</h2>
+      <p class="muted">Choose from curated packages or request a custom menu for your event.</p>
+
+      <div class="menu-grid">
+        <!-- Card: Starters -->
+        <article class="menu-card">
+          <img src="assets/images/friedStarter.jpg" alt="Starters">
+          <div class="menu-body">
+            <h3>Starters</h3>
+            <p class="muted">Light bites to begin.</p>
+            <ul class="menu-items">
+              <li>Arabian Puff </li>
+              <li>Cheese Cone </li>
+              <li>Mint Roll </li>
+              <li>Chilli bites </li>
+              <li>Chicken Tempura </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card: Main Courses -->
+        <article class="menu-card">
+          <img src="assets/images/Biryani.jpg" alt="Main course">
+          <div class="menu-body">
+            <h3>Main Course</h3>
+            <p class="muted">Classics & contemporary selections.</p>
+            <ul class="menu-items">
+              <li>Signature Beef Biryani —</li>
+              <li>Yakhni Pulao (Mutton / Beef / Chicken) </li>
+              <li>Mutton Kunna </li>
+              <li>Chicken Handi _</li>
+              <li>Chicken Karahi </li>
+              <li>Chicken Qorma </li>
+            </ul>
+          </div>
+        </article>
+
+
+
+        <!-- Card: Specials -->
+        <article class="menu-card">
+          <img src="assets/images/Specials.jpg" alt="Specials">
+          <div class="menu-body">
+            <h3>Roasted</h3>
+            <p class="muted">Roasted (Bhatti)</p>
+            <ul class="menu-items">
+              <li>Lamb Raan </li>
+              <li>Dampukht </li>
+              <li>Roasted Chicken </li>
+              <li>Chicken Tandoori </li>
+              <li>Mandi </li>
+            </ul>
+          </div>
+        </article>
+        <article class="menu-card">
+          <img src="assets/images/fried.jpg" alt="Fried">
+          <div class="menu-body">
+            <h3>Fried</h3>
+            <p class="muted">Fried </p>
+            <ul class="menu-items">
+              <li>Chicken Tempura </li>
+              <li>Chicken Broast </li>
+              <li>Fish </li>
+              <li>Prawns </li>
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card: Desserts -->
+        <article class="menu-card">
+          <img src="assets/images/Icecream.jpg" alt="Dessert">
+          <div class="menu-body">
+            <h3>Desserts</h3>
+            <p class="muted">Sweet finales to delight your guests.</p>
+            <ul class="menu-items">
+              <li>Lab e Shereen </li>
+              <li>Ras Malai </li>
+              <li>Rabri Kheer </li>
+              <li>Gajar ka Halwa </li>
+              <li>Kulfi </li>
+              <li>Icecrem Roasted Almonds </li>
+              <li>Gulab Jamun</li>
+
+            </ul>
+          </div>
+        </article>
+
+        <!-- Card: Beverages -->
+        <article class="menu-card">
+          <img src="assets/images/Juices.jpg" alt="Beverages">
+          <div class="menu-body">
+            <h3>Beverages</h3>
+            <p class="muted">Refreshing and crafted to pair with each meal.</p>
+            <ul class="menu-items">
+              <li> Tin Can </li>
+              <li>Buddy Packs </li>
+              <li>Fresh Juices </li>
+              <li>Tea - Doodh Patti </li>
+              <li>Coffee Expresso </li>
+              <li>Kashmiri Tea </li>
+
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- GALLERY -->
+  <section id="gallery" class="section section-light" data-parallax-bg>
+    <div class="wrap">
+      <h2 class="section-title">Gallery</h2>
+      <div class="gallery-grid">
+        <!-- gallery thumbnails (click to open lightbox) -->
+        <img class="glight" src="assets/images/gallery6.jpg" alt="gallery6">
+        <img class="glight" src="assets/images/perHead11.jpg" alt="Perhead Offerings1">
+        <img class="glight" src="assets/images/perhead22.jpg" alt="Perhead Offerings2">
+        <img class="glight" src="assets/images/gallery2.jpeg" alt="gallery2">
+        <img class="glight" src="assets/images/List3.jpeg" alt="List3">
+        <img class="glight" src="assets/images/List2.jpeg" alt="List2">
+
+        <img class="glight" src="assets/images/softdrinks.jpg" alt="gallery1">
+
+        <!-- <img class="glight" src="assets/images/perhead1.jpg" alt="per-head1">
+        <img class="glight" src="assets/images/perhead2.jpg" alt="per-head2"> -->
+        <!-- <img class="glight"
+          src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=900&q=80"
+          alt="gallery4"> -->
+
+        <img class="glight" src="assets/images/Menus.jpeg" alt="Menus">
+        <img class="glight" src="assets/images/listOfitems.jpeg" alt="List">
+
+
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- TESTIMONIALS (New Section) -->
+  <section id="testimonials" class="section section-cream">
+    <div class="wrap">
+      <h2 class="section-title">What Our Clients Say</h2>
+      <blockquote>“Lavish Caterers made our wedding unforgettable. The food was outstanding and décor was flawless.” —
+        <strong>Ayesha & Imran</strong></blockquote>
+      <blockquote>“Professional, punctual, and delicious. Highly recommended for corporate events.” — <strong>Asher
+          Ansari.</strong></blockquote>
+    </div>
+  </section>
+
+  <!-- FAQ (New Section) -->
+  <section id="faq" class="section section-light">
+    <div class="wrap">
+      <h2 class="section-title">FAQs</h2>
+      <details>
+        <summary>Do you offer per-head pricing?</summary>
+        <p>Yes, we offer both per-head packages and customized dish-based pricing.</p>
+      </details>
+      <details>
+        <summary>How far in advance should we book?</summary>
+        <p>We recommend booking as early as possible to ensure availability, especially for popular dates like weddings. Typically, booking 2-3 weeks in advance is ideal, but we can accommodate last-minute requests whenever possible.</p>
+      </details>
+      <details>
+        <summary>Do you Deliver food at door step for small family events?</summary>
+        <p>Yes, we do offer food delivery.</p>
+      </details>
+    </div>
+  </section>
+
+
+  <!-- LOCATION & CONTACT -->
+  <section id="location" class="section section-cream" data-parallax-bg>
+    <div class="wrap two-col">
+      <div>
+        <h2 class="section-title">Visit / Contact</h2>
+        <p class="muted">Office: Lavish Caterers — Near Lucky One Mall / Sagheer Center</p>
+        <p><strong>Phone (Farrukh Alam Firdousi)</strong> <a href="tel:+923008292033">0300-8292033</a></p>
+        <p><strong>Phone (Owais Firdousi)</strong> <a href="tel:+923152497674">0315-2497674</a></p>
+        <p><strong>Email</strong> <a href="mailto:lavishcaters@gmail.com">lavishcaters@gmail.com</a></p>
+        <p class="muted small">Click the marker for directions.</p>
+      </div>
+      <div class="map-wrap">
+        <iframe title="Lavish Caterers Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3620.208992614294!2d67.0796486!3d24.9378112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33f4fd8eb6a5b%3A0xe35970dd4cc94ecc!2sLavish%20Caters!5e0!3m2!1sen!2s!4v1691492857093"
+          width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="footer-left">
+        <strong>Lavish Caterers & Decorators</strong><br>
+        Since 1990 • Karachi
+      </div>
+      <div class="footer-right">
+        <small>© <span id="year"></span> Lavish Caterers & Decorators — All rights reserved</small>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox overlay -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <button id="lightboxClose" class="lightbox-close" aria-label="Close">&times;</button>
+    <img id="lightboxImg" src="" alt="">
+  </div>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>
