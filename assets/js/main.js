@@ -1,9 +1,32 @@
 document.addEventListener("DOMContentLoaded", function () {
+  initNav();
   initPackages();
   initCalculator();
   initTestimonials();
   initGallery();
 });
+
+function initNav() {
+  const navToggle = document.getElementById("navToggle");
+  const mainNav = document.getElementById("mainNav");
+  const yearEl = document.getElementById("year");
+
+  if (yearEl) {
+    yearEl.textContent = String(new Date().getFullYear());
+  }
+
+  if (!navToggle || !mainNav) return;
+
+  navToggle.addEventListener("click", function () {
+    mainNav.classList.toggle("open");
+  });
+
+  mainNav.querySelectorAll("a").forEach(function (link) {
+    link.addEventListener("click", function () {
+      mainNav.classList.remove("open");
+    });
+  });
+}
 
 function initPackages() {
   const packagesGrid = document.getElementById("packagesGrid");
@@ -160,10 +183,10 @@ function initCalculator() {
       dessert: 12
     },
     pricesPerKg: {
-      rice: 420,
-      gravy: 900,
+      rice: 1900,
+      gravy: 1400,
       bbq: 1200,
-      dessert: 650
+      dessert: 1400
     },
     eventMultipliers: {
       Wedding: 1.15,

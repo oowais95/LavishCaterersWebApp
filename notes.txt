@@ -1,0 +1,11 @@
+run this locally by
+	>npx http-server
+
+> not a react proj as package.json does not exist 
+> changes reflected directly launching index.html
+
+
+
+
+============= todo
+ create a html template for billings and share on whatsapp as pdf option

@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lavish Caterers | Billing Template</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <style>
+    body {
+      padding-top: 86px;
+    }
+
+    .billing-page {
+      padding: 40px 0 80px;
+    }
+
+    .billing-shell {
+      display: grid;
+      grid-template-columns: minmax(320px, 430px) minmax(0, 1fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .panel {
+      background: #fff;
+      border: 1px solid rgba(122, 27, 42, 0.12);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      padding: 22px;
+    }
+
+    .panel h2 {
+      margin: 0 0 8px;
+      color: var(--maroon);
+      font-family: "Playfair Display", serif;
+      font-size: clamp(28px, 3vw, 36px);
+    }
+
+    .panel-subtitle {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .form-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .field.full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      color: var(--muted);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid rgba(31, 26, 25, 0.14);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      background: #fff;
+    }
+
+    .field textarea {
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    .billing-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .invoice-card {
+      background: linear-gradient(180deg, #fff 0%, #fffaf6 100%);
+      border: 1px solid rgba(122, 27, 42, 0.12);
+      border-radius: 18px;
+      box-shadow: var(--shadow-soft);
+      padding: 24px;
+      color: var(--text);
+    }
+
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      align-items: flex-start;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(122, 27, 42, 0.12);
+      margin-bottom: 18px;
+    }
+
+    .brand-lockup {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      background: var(--maroon);
+      color: var(--gold);
+      border-radius: 12px;
+      font-weight: 700;
+      font-family: "Playfair Display", serif;
+    }
+
+    .brand-lockup strong {
+      display: block;
+      color: var(--maroon);
+      font-size: 20px;
+      font-family: "Playfair Display", serif;
+    }
+
+    .brand-lockup span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .invoice-meta {
+      text-align: right;
+      min-width: 180px;
+    }
+
+    .invoice-meta h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      color: var(--maroon);
+      font-family: "Playfair Display", serif;
+    }
+
+    .invoice-meta p {
+      margin: 4px 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .invoice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+
+    .invoice-box {
+      background: rgba(122, 27, 42, 0.03);
+      border: 1px solid rgba(122, 27, 42, 0.08);
+      border-radius: 12px;
+      padding: 12px 14px;
+    }
+
+    .invoice-box strong,
+    .invoice-box span {
+      display: block;
+    }
+
+    .invoice-box span {
+      margin-top: 4px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+
+    .invoice-table th,
+    .invoice-table td {
+      border-bottom: 1px solid rgba(122, 27, 42, 0.1);
+      padding: 10px 8px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .invoice-table th {
+      color: var(--maroon);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .invoice-table td.amount,
+    .invoice-table th.amount {
+      text-align: right;
+    }
+
+    .totals {
+      margin-top: 20px;
+      margin-left: auto;
+      max-width: 280px;
+      width: 100%;
+    }
+
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(122, 27, 42, 0.08);
+      color: var(--muted);
+    }
+
+    .totals-row.total {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--maroon);
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .invoice-note {
+      margin-top: 18px;
+      padding-top: 14px;
+      border-top: 1px dashed rgba(122, 27, 42, 0.18);
+      color: var(--muted);
+      font-size: 14px;
+      white-space: pre-wrap;
+    }
+
+    @media (max-width: 900px) {
+      .billing-shell {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .form-grid,
+      .invoice-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .invoice-header {
+        flex-direction: column;
+      }
+
+      .invoice-meta {
+        text-align: left;
+      }
+    }
+
+    @media print {
+      body {
+        padding-top: 0;
+        background: #fff;
+      }
+
+      .site-header,
+      .no-print,
+      .billing-actions {
+        display: none !important;
+      }
+
+      .billing-page {
+        padding-top: 0;
+      }
+
+      .billing-shell {
+        display: block;
+      }
+
+      .panel {
+        display: none !important;
+      }
+
+      .invoice-card {
+        box-shadow: none;
+        border: 1px solid #000;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Lavish Caterers home">
+        <svg id="logo" width="56" height="56" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <circle cx="50" cy="50" r="48" fill="#7A1B2A" />
+          <path d="M30 60 C40 45,60 45,70 60" stroke="#D4AF37" stroke-width="4" fill="none" stroke-linecap="round" />
+          <text x="50" y="55" font-family="Playfair Display, serif" text-anchor="middle" fill="#D4AF37" font-size="18" font-weight="700">LC</text>
+        </svg>
+        <div class="brand-text">
+          <div class="name">Lavish Caterers</div>
+          <div class="tag">&amp; Decorators</div>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="billing.html" class="nav-link">Billing</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="billing-page">
+    <div class="wrap">
+      <div class="billing-shell">
+        <section class="panel no-print">
+          <h2>Billing Template</h2>
+          <p class="panel-subtitle">Create a client invoice and share it quickly through WhatsApp or save it as PDF.</p>
+
+          <form id="billingForm">
+            <div class="form-grid">
+              <div class="field full">
+                <label for="clientName">Client / Event Name</label>
+                <input id="clientName" name="clientName" type="text" value="Aisha & Bilal Wedding" />
+              </div>
+
+              <div class="field">
+                <label for="invoiceNumber">Invoice #</label>
+                <input id="invoiceNumber" name="invoiceNumber" type="text" value="LC-2048" />
+              </div>
+
+              <div class="field">
+                <label for="invoiceDate">Invoice Date</label>
+                <input id="invoiceDate" name="invoiceDate" type="date" />
+              </div>
+
+              <div class="field">
+                <label for="eventType">Event Type</label>
+                <select id="eventType" name="eventType">
+                  <option value="Wedding">Wedding</option>
+                  <option value="Corporate">Corporate</option>
+                  <option value="Mehndi">Mehndi</option>
+                  <option value="Family Function">Family Function</option>
+                </select>
+              </div>
+
+              <div class="field">
+                <label for="clientPhone">Client Phone</label>
+                <input id="clientPhone" name="clientPhone" type="tel" value="0300-1234567" />
+              </div>
+
+              <div class="field">
+                <label for="packageName">Package</label>
+                <input id="packageName" name="packageName" type="text" value="Premium Wedding Package" />
+              </div>
+
+              <div class="field">
+                <label for="guests">Guests</label>
+                <input id="guests" name="guests" type="number" min="1" value="500" />
+              </div>
+
+              <div class="field">
+                <label for="amount">Per Head / Total</label>
+                <input id="amount" name="amount" type="number" min="0" value="1850" />
+              </div>
+
+              <div class="field full">
+                <label for="note">Additional Notes</label>
+                <textarea id="note" name="note">Includes buffet setup, serving staff, dessert, and event coordination.</textarea>
+              </div>
+
+              <div class="field">
+                <label for="advancePaid">Advance Paid</label>
+                <input id="advancePaid" name="advancePaid" type="number" min="0" value="55000" />
+              </div>
+
+              <div class="field">
+                <label for="balanceDue">Balance Due</label>
+                <input id="balanceDue" name="balanceDue" type="number" min="0" value="37500" />
+              </div>
+            </div>
+
+            <div class="billing-actions">
+              <button type="button" class="btn btn-primary" id="generateInvoiceBtn">Generate Invoice</button>
+              <button type="button" class="btn btn-outline-light" id="printInvoiceBtn" style="color: var(--maroon); border: 1px solid rgba(122,27,42,0.15); background:#fff;">Print / Save as PDF</button>
+              <button type="button" class="btn btn-primary" id="shareWhatsAppBtn">Share on WhatsApp</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="invoice-card" id="invoicePreview" aria-live="polite">
+          <div class="invoice-header">
+            <div class="brand-lockup">
+              <div class="brand-mark">LC</div>
+              <div>
+                <strong>Lavish Caterers</strong>
+                <span>&amp; Decorators • Karachi</span>
+              </div>
+            </div>
+
+            <div class="invoice-meta">
+              <h3>Invoice</h3>
+              <p><strong>Invoice #:</strong> <span id="previewInvoiceNumber">LC-2048</span></p>
+              <p><strong>Date:</strong> <span id="previewInvoiceDate">dd/mm/yyyy</span></p>
+            </div>
+          </div>
+
+          <div class="invoice-grid">
+            <div class="invoice-box">
+              <strong>Bill To</strong>
+              <span id="previewClientName">Aisha &amp; Bilal Wedding</span>
+              <span id="previewClientPhone">0300-1234567</span>
+            </div>
+
+            <div class="invoice-box">
+              <strong>Event Details</strong>
+              <span id="previewEventType">Wedding</span>
+              <span id="previewPackage">Premium Wedding Package</span>
+            </div>
+          </div>
+
+          <table class="invoice-table" aria-label="Invoice table">
+            <thead>
+              <tr>
+                <th>Description</th>
+                <th>Qty</th>
+                <th>Rate</th>
+                <th class="amount">Amount</th>
+              </tr>
+            </thead>
+            <tbody id="previewTableBody">
+              <tr>
+                <td>Premium Wedding Buffet</td>
+                <td>500</td>
+                <td>Rs. 1,850</td>
+                <td class="amount">Rs. 925,000</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="totals">
+            <div class="totals-row">
+              <span>Subtotal</span>
+              <strong id="previewSubtotal">Rs. 925,000</strong>
+            </div>
+            <div class="totals-row">
+              <span>Advance Paid</span>
+              <strong id="previewAdvance">Rs. 55,000</strong>
+            </div>
+            <div class="totals-row">
+              <span>Balance Due</span>
+              <strong id="previewBalance">Rs. 37,500</strong>
+            </div>
+            <div class="totals-row total">
+              <span>Total</span>
+              <strong id="previewTotal">Rs. 925,000</strong>
+            </div>
+          </div>
+
+          <div class="invoice-note" id="previewNote">Includes buffet setup, serving staff, dessert, and event coordination.</div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      const form = document.getElementById("billingForm");
+      const generateInvoiceBtn = document.getElementById("generateInvoiceBtn");
+      const printInvoiceBtn = document.getElementById("printInvoiceBtn");
+      const shareWhatsAppBtn = document.getElementById("shareWhatsAppBtn");
+
+      const previewInvoiceNumber = document.getElementById("previewInvoiceNumber");
+      const previewInvoiceDate = document.getElementById("previewInvoiceDate");
+      const previewClientName = document.getElementById("previewClientName");
+      const previewClientPhone = document.getElementById("previewClientPhone");
+      const previewEventType = document.getElementById("previewEventType");
+      const previewPackage = document.getElementById("previewPackage");
+      const previewTableBody = document.getElementById("previewTableBody");
+      const previewSubtotal = document.getElementById("previewSubtotal");
+      const previewAdvance = document.getElementById("previewAdvance");
+      const previewBalance = document.getElementById("previewBalance");
+      const previewTotal = document.getElementById("previewTotal");
+      const previewNote = document.getElementById("previewNote");
+
+      function formatCurrency(value) {
+        const amount = Number(value) || 0;
+        return "Rs. " + amount.toLocaleString("en-PK");
+      }
+
+      function formatDate(value) {
+        if (!value) return "dd/mm/yyyy";
+        const date = new Date(value + "T00:00:00");
+        if (Number.isNaN(date.getTime())) return value;
+        return date.toLocaleDateString("en-GB", { day: "2-digit", month: "2-digit", year: "numeric" });
+      }
+
+      function getFormValues() {
+        const formData = new FormData(form);
+        const guests = Number(formData.get("guests")) || 0;
+        const perHeadAmount = Number(formData.get("amount")) || 0;
+        const advancePaid = Number(formData.get("advancePaid")) || 0;
+        const balanceDue = Number(formData.get("balanceDue")) || 0;
+        const subtotal = guests * perHeadAmount;
+        const total = subtotal;
+
+        return {
+          clientName: formData.get("clientName") || "Client Name",
+          invoiceNumber: formData.get("invoiceNumber") || "LC-0000",
+          invoiceDate: formData.get("invoiceDate") || new Date().toISOString().slice(0, 10),
+          eventType: formData.get("eventType") || "Wedding",
+          clientPhone: formData.get("clientPhone") || "0300-0000000",
+          packageName: formData.get("packageName") || "Custom Package",
+          guests: guests,
+          amount: perHeadAmount,
+          subtotal: subtotal,
+          advancePaid: advancePaid,
+          balanceDue: balanceDue,
+          total: total,
+          note: formData.get("note") || ""
+        };
+      }
+
+      function renderInvoice() {
+        const values = getFormValues();
+
+        previewInvoiceNumber.textContent = values.invoiceNumber;
+        previewInvoiceDate.textContent = formatDate(values.invoiceDate);
+        previewClientName.textContent = values.clientName;
+        previewClientPhone.textContent = values.clientPhone;
+        previewEventType.textContent = values.eventType;
+        previewPackage.textContent = values.packageName;
+        previewSubtotal.textContent = formatCurrency(values.subtotal);
+        previewAdvance.textContent = formatCurrency(values.advancePaid);
+        previewBalance.textContent = formatCurrency(values.balanceDue);
+        previewTotal.textContent = formatCurrency(values.total);
+        previewNote.textContent = values.note;
+
+        previewTableBody.innerHTML = "<tr>" +
+          "<td>" + values.packageName + "</td>" +
+          "<td>" + values.guests + "</td>" +
+          "<td>" + formatCurrency(values.amount) + "</td>" +
+          "<td class='amount'>" + formatCurrency(values.subtotal) + "</td>" +
+          "</tr>";
+      }
+
+      generateInvoiceBtn.addEventListener("click", renderInvoice);
+      form.addEventListener("input", renderInvoice);
+      form.addEventListener("change", renderInvoice);
+      printInvoiceBtn.addEventListener("click", function () {
+        window.print();
+      });
+
+      shareWhatsAppBtn.addEventListener("click", function () {
+        const values = getFormValues();
+        const message = [
+          "Assalam o Alaikum,",
+          "",
+          "Here is the invoice for " + values.clientName + ".",
+          "Invoice #: " + values.invoiceNumber,
+          "Date: " + formatDate(values.invoiceDate),
+          "Event Type: " + values.eventType,
+          "Package: " + values.packageName,
+          "Guests: " + values.guests,
+          "Subtotal: " + formatCurrency(values.subtotal),
+          "Advance Paid: " + formatCurrency(values.advancePaid),
+          "Balance Due: " + formatCurrency(values.balanceDue),
+          "Total: " + formatCurrency(values.total),
+          "",
+          "Regards,",
+          "Lavish Caterers & Decorators"
+        ].join("\n");
+
+        const whatsappUrl = "https://wa.me/923008292033?text=" + encodeURIComponent(message);
+        window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+      });
+
+      renderInvoice();
+    })();
+  </script>
+</body>
+
+</html>
