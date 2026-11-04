@@ -83,6 +83,68 @@
       resize: vertical;
     }
 
+    .items-editor {
+      grid-column: 1 / -1;
+    }
+
+    .items-editor-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: 4px 0 10px;
+    }
+
+    .items-editor-heading strong {
+      color: var(--maroon);
+    }
+
+    .item-entry {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(72px, 0.7fr) minmax(100px, 1fr) auto auto;
+      gap: 8px;
+      align-items: end;
+      margin-bottom: 10px;
+    }
+
+    .item-entry input {
+      min-width: 0;
+      width: 100%;
+      border: 1px solid rgba(31, 26, 25, 0.14);
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+    }
+
+    .item-entry label {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .item-row-button {
+      min-width: 40px;
+      min-height: 42px;
+      padding: 8px 12px;
+      border: 1px solid rgba(122, 27, 42, 0.18);
+      border-radius: 10px;
+      background: #fff;
+      color: var(--maroon);
+      font: inherit;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .item-row-button:hover {
+      background: rgba(122, 27, 42, 0.06);
+    }
+
+    .item-row-button.remove-item {
+      color: #8a1020;
+    }
+
     .billing-actions {
       display: flex;
       flex-wrap: wrap;
@@ -135,6 +197,13 @@
     }
 
     .brand-lockup span {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .business-contact {
+      display: block;
+      margin-top: 5px;
       color: var(--muted);
       font-size: 12px;
     }
@@ -260,6 +329,19 @@
       .invoice-meta {
         text-align: left;
       }
+
+      .item-entry {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .item-entry .item-description {
+        grid-column: 1 / -1;
+      }
+
+      .items-editor-heading {
+        align-items: flex-start;
+        flex-direction: column;
+      }
     }
 
     @media print {
@@ -361,14 +443,29 @@
                 <input id="packageName" name="packageName" type="text" value="Premium Wedding Package" />
               </div>
 
-              <div class="field">
-                <label for="guests">Guests</label>
-                <input id="guests" name="guests" type="number" min="1" value="500" />
-              </div>
-
-              <div class="field">
-                <label for="amount">Per Head / Total</label>
-                <input id="amount" name="amount" type="number" min="0" value="1850" />
+              <div class="items-editor">
+                <div class="items-editor-heading">
+                  <strong>Invoice Items</strong>
+                  <span class="muted small">Add a description, quantity, and rate for each item.</span>
+                </div>
+                <div id="itemRows">
+                  <div class="item-entry">
+                    <div class="item-description">
+                      <label for="itemDescription1">Item</label>
+                      <input id="itemDescription1" name="itemDescription" type="text" value="Premium Wedding Buffet" />
+                    </div>
+                    <div>
+                      <label for="itemQuantity1">Qty</label>
+                      <input id="itemQuantity1" name="itemQuantity" type="number" min="0" step="any" value="500" />
+                    </div>
+                    <div>
+                      <label for="itemRate1">Rate (Rs.)</label>
+                      <input id="itemRate1" name="itemRate" type="number" min="0" step="any" value="1850" />
+                    </div>
+                    <button class="item-row-button add-item" type="button" aria-label="Add item row">+</button>
+                    <button class="item-row-button remove-item" type="button" aria-label="Remove item row" disabled>&minus;</button>
+                  </div>
+                </div>
               </div>
 
               <div class="field full">
@@ -379,11 +476,6 @@
               <div class="field">
                 <label for="advancePaid">Advance Paid</label>
                 <input id="advancePaid" name="advancePaid" type="number" min="0" value="55000" />
-              </div>
-
-              <div class="field">
-                <label for="balanceDue">Balance Due</label>
-                <input id="balanceDue" name="balanceDue" type="number" min="0" value="37500" />
               </div>
             </div>
 
@@ -402,6 +494,7 @@
               <div>
                 <strong>Lavish Caterers</strong>
                 <span>&amp; Decorators • Karachi</span>
+                <span class="business-contact">03008292033 • 03152497674</span>
               </div>
             </div>
 
@@ -447,7 +540,7 @@
 
           <div class="totals">
             <div class="totals-row">
-              <span>Subtotal</span>
+              <span>Total Items</span>
               <strong id="previewSubtotal">Rs. 925,000</strong>
             </div>
             <div class="totals-row">
@@ -456,7 +549,7 @@
             </div>
             <div class="totals-row">
               <span>Balance Due</span>
-              <strong id="previewBalance">Rs. 37,500</strong>
+              <strong id="previewBalance">Rs. 870,000</strong>
             </div>
             <div class="totals-row total">
               <span>Total</span>
@@ -465,6 +558,7 @@
           </div>
 
           <div class="invoice-note" id="previewNote">Includes buffet setup, serving staff, dessert, and event coordination.</div>
+          <div class="business-contact">Lavish Caterers: 03008292033 | 03152497674</div>
         </section>
       </div>
     </div>
@@ -473,6 +567,7 @@
   <script>
     (function () {
       const form = document.getElementById("billingForm");
+      const itemRows = document.getElementById("itemRows");
       const generateInvoiceBtn = document.getElementById("generateInvoiceBtn");
       const printInvoiceBtn = document.getElementById("printInvoiceBtn");
       const shareWhatsAppBtn = document.getElementById("shareWhatsAppBtn");
@@ -504,12 +599,18 @@
 
       function getFormValues() {
         const formData = new FormData(form);
-        const guests = Number(formData.get("guests")) || 0;
-        const perHeadAmount = Number(formData.get("amount")) || 0;
-        const advancePaid = Number(formData.get("advancePaid")) || 0;
-        const balanceDue = Number(formData.get("balanceDue")) || 0;
-        const subtotal = guests * perHeadAmount;
-        const total = subtotal;
+        const items = Array.from(itemRows.querySelectorAll(".item-entry")).map(function (row) {
+          const quantity = Math.max(0, Number(row.querySelector("[name='itemQuantity']").value) || 0);
+          const rate = Math.max(0, Number(row.querySelector("[name='itemRate']").value) || 0);
+          return {
+            description: row.querySelector("[name='itemDescription']").value.trim() || "Item",
+            quantity: quantity,
+            rate: rate,
+            amount: quantity * rate
+          };
+        });
+        const advancePaid = Math.max(0, Number(formData.get("advancePaid")) || 0);
+        const total = items.reduce(function (sum, item) { return sum + item.amount; }, 0);
 
         return {
           clientName: formData.get("clientName") || "Client Name",
@@ -518,11 +619,10 @@
           eventType: formData.get("eventType") || "Wedding",
           clientPhone: formData.get("clientPhone") || "0300-0000000",
           packageName: formData.get("packageName") || "Custom Package",
-          guests: guests,
-          amount: perHeadAmount,
-          subtotal: subtotal,
+          items: items,
+          subtotal: total,
           advancePaid: advancePaid,
-          balanceDue: balanceDue,
+          balanceDue: Math.max(0, total - advancePaid),
           total: total,
           note: formData.get("note") || ""
         };
@@ -543,13 +643,53 @@
         previewTotal.textContent = formatCurrency(values.total);
         previewNote.textContent = values.note;
 
-        previewTableBody.innerHTML = "<tr>" +
-          "<td>" + values.packageName + "</td>" +
-          "<td>" + values.guests + "</td>" +
-          "<td>" + formatCurrency(values.amount) + "</td>" +
-          "<td class='amount'>" + formatCurrency(values.subtotal) + "</td>" +
-          "</tr>";
+        previewTableBody.replaceChildren();
+        values.items.forEach(function (item) {
+          const row = document.createElement("tr");
+          const descriptionCell = document.createElement("td");
+          const quantityCell = document.createElement("td");
+          const rateCell = document.createElement("td");
+          const amountCell = document.createElement("td");
+
+          descriptionCell.textContent = item.description;
+          quantityCell.textContent = String(item.quantity);
+          rateCell.textContent = formatCurrency(item.rate);
+          amountCell.className = "amount";
+          amountCell.textContent = formatCurrency(item.amount);
+          row.append(descriptionCell, quantityCell, rateCell, amountCell);
+          previewTableBody.appendChild(row);
+        });
       }
+
+      function updateRemoveButtons() {
+        const rows = itemRows.querySelectorAll(".item-entry");
+        rows.forEach(function (row) {
+          row.querySelector(".remove-item").disabled = rows.length === 1;
+        });
+      }
+
+      itemRows.addEventListener("click", function (event) {
+        const button = event.target.closest("button");
+        if (!button) return;
+
+        if (button.classList.contains("add-item")) {
+          const row = document.createElement("div");
+          row.className = "item-entry";
+          row.innerHTML =
+            "<div class='item-description'><label>Item</label><input name='itemDescription' type='text' />" +
+            "</div><div><label>Qty</label><input name='itemQuantity' type='number' min='0' step='any' value='1' /></div>" +
+            "<div><label>Rate (Rs.)</label><input name='itemRate' type='number' min='0' step='any' value='0' /></div>" +
+            "<button class='item-row-button add-item' type='button' aria-label='Add item row'>+</button>" +
+            "<button class='item-row-button remove-item' type='button' aria-label='Remove item row'>&minus;</button>";
+          itemRows.appendChild(row);
+          row.querySelector("[name='itemDescription']").focus();
+        } else if (button.classList.contains("remove-item") && itemRows.children.length > 1) {
+          button.closest(".item-entry").remove();
+        }
+
+        updateRemoveButtons();
+        renderInvoice();
+      });
 
       generateInvoiceBtn.addEventListener("click", renderInvoice);
       form.addEventListener("input", renderInvoice);
@@ -568,14 +708,19 @@
           "Date: " + formatDate(values.invoiceDate),
           "Event Type: " + values.eventType,
           "Package: " + values.packageName,
-          "Guests: " + values.guests,
-          "Subtotal: " + formatCurrency(values.subtotal),
+          "",
+          "Items:",
+          values.items.map(function (item) {
+            return "- " + item.description + " | Qty: " + item.quantity + " | Rate: " +
+              formatCurrency(item.rate) + " | Amount: " + formatCurrency(item.amount);
+          }).join("\n"),
+          "Total: " + formatCurrency(values.total),
           "Advance Paid: " + formatCurrency(values.advancePaid),
           "Balance Due: " + formatCurrency(values.balanceDue),
-          "Total: " + formatCurrency(values.total),
           "",
           "Regards,",
-          "Lavish Caterers & Decorators"
+          "Lavish Caterers & Decorators",
+          "03008292033 | 03152497674"
         ].join("\n");
 
         const whatsappUrl = "https://wa.me/923008292033?text=" + encodeURIComponent(message);
