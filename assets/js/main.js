@@ -17,14 +17,26 @@ function initNav() {
 
   if (!navToggle || !mainNav) return;
 
+  function setNavOpen(isOpen) {
+    mainNav.classList.toggle("open", isOpen);
+    navToggle.setAttribute("aria-expanded", String(isOpen));
+    navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
+  }
+
   navToggle.addEventListener("click", function () {
-    mainNav.classList.toggle("open");
+    setNavOpen(!mainNav.classList.contains("open"));
   });
 
   mainNav.querySelectorAll("a").forEach(function (link) {
     link.addEventListener("click", function () {
-      mainNav.classList.remove("open");
+      setNavOpen(false);
     });
+  });
+
+  window.addEventListener("resize", function () {
+    if (window.innerWidth > 1000) {
+      setNavOpen(false);
+    }
   });
 }
 

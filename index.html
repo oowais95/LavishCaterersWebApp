@@ -13,8 +13,8 @@
 
   <!-- Styles -->
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon-32x32.png">
+  <link rel="icon" type="image/png" href="assets/images/lavish-logo.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/lavish-logo.png">
 
   <meta name="description"
     content="Lavish Caterers & Decorators offers premium catering Karachi services, wedding catering, and event decorators for weddings, corporate events, and family functions in Karachi.">
@@ -52,17 +52,10 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="brand" href="#home" aria-label="Lavish Caterers home">
-        <!-- inline SVG logo (editable) -->
-        <svg id="logo" width="56" height="56" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"
-          aria-hidden="true">
-          <circle cx="50" cy="50" r="48" fill="#7A1B2A" />
-          <path d="M30 60 C40 45,60 45,70 60" stroke="#D4AF37" stroke-width="4" fill="none" stroke-linecap="round" />
-          <text x="50" y="55" font-family="Playfair Display, serif" text-anchor="middle" fill="#D4AF37" font-size="18"
-            font-weight="700">LC</text>
-        </svg>
+        <img class="brand-logo" src="assets/images/lavish-logo.png" alt="Lavish Caterers logo" />
         <div class="brand-text">
           <div class="name">Lavish Caterers</div>
-          <div class="tag">& Decorators</div>
+          <div class="tag">&amp; Decorators</div>
         </div>
       </a>
 
@@ -77,28 +70,47 @@
         <a href="#contact" class="nav-link contact-link" id="openContact">Contact</a>
       </nav>
 
-      <button id="navToggle" class="nav-toggle" aria-label="Open menu">☰</button>
+      <button id="navToggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
     </div>
   </header>
 
-  <!-- HERO (parallax) -->
+  <!-- HERO -->
   <section id="home" class="hero">
     <div class="hero-inner" data-aos="fade-up">
-      <p class="hero-eyebrow">Premium Catering & Event Decor in Karachi</p>
-      <h1 class="hero-title">Lavish Catering & Décor That Leave Lasting Memories</h1>
-      <p class="hero-subtitle">
-        Founded in 1995 by Farrukh Alam Firdousi, Lavish Caterers delivers food and service that make events memorable.
-        From weddings to corporate functions, we craft dishes with care and serve them with warmth.
-      </p>
-      <div class="hero-buttons">
-        <a href="#menu" class="btn btn-primary">Explore Our Signature Menus</a>
-        <a href="https://wa.me/923008292033" class="btn btn-outline-light" target="_blank" rel="noopener noreferrer">Get
-          Instant Quote on WhatsApp</a>
+      <div class="hero-copy">
+        <p class="hero-eyebrow">Premium Catering &amp; Event Decor in Karachi</p>
+        <h1 class="hero-title">Lavish celebrations, thoughtfully crafted.</h1>
+        <p class="hero-subtitle">
+          Founded in 1995 by Farrukh Alam Firdousi, Lavish Caterers turns weddings, family gatherings, and corporate events
+          into elevated experiences through exceptional food, graceful décor, and attentive service.
+        </p>
+        <div class="hero-buttons">
+          <a href="#menu" class="btn btn-primary">Explore Signature Menus</a>
+          <a href="https://wa.me/923008292033" class="btn btn-outline-light" target="_blank" rel="noopener noreferrer">Get
+            Instant Quote</a>
+        </div>
+        <div class="hero-trust">
+          <div><span>🎖</span> 30+ Years of Excellence</div>
+          <div><span>🍽</span> Bespoke Menus</div>
+          <div><span>🌟</span> 1000+ Events Hosted</div>
+        </div>
       </div>
-      <div class="hero-trust">
-        <div><span>🎖</span> Over 30 Years of Experience</div>
-        <div><span>🍽</span> Custom Menus Available</div>
-        <div><span>🌟</span> 1000+ Events Hosted</div>
+
+      <div class="hero-panel" aria-label="Luxury event highlights">
+        <div class="hero-panel-media"></div>
+        <div class="hero-panel-content">
+          <span class="panel-kicker">Signature Events</span>
+          <h2>From mehndi nights to grand receptions</h2>
+          <ul>
+            <li>Wedding Catering Packages</li>
+            <li>Custom Event Styling</li>
+            <li>On-site Coordination</li>
+          </ul>
+          <div class="panel-footer">
+            <strong>Since 1995</strong>
+            <span>Karachi's trusted catering partner</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -109,7 +121,7 @@
     <div class="wrap two-col about-grid">
       <div class="about-text">
         <h2>Our Story</h2>
-        <p class="lead">Since 1990, Lavish Caterers & Decorators has been making events memorable.
+        <p class="lead">Since 1995, Lavish Caterers & Decorators has been making events memorable.
           From weddings and family functions to corporate gatherings, we bring great food, smooth service, and a touch
           of décor.</p>
         <ul class="bullets">
@@ -243,7 +255,7 @@
   <section id="packages" class="section section-light" data-parallax-bg>
     <div class="wrap">
       <h2 class="section-title">Our Packages</h2>
-      <p class="muted section-intro">Flexible options for family gatherings, weddings, and premium event experiences.</p>
+      <p class="muted section-intro">Choose from ten per-head menus, from classic favorites to a premium spread. Select from the options listed in each package and get in touch to plan your event.</p>
 
       <div id="packagesGrid" class="packages-grid"></div>
     </div>
@@ -252,7 +264,7 @@
   <!-- EVENT COST CALCULATOR -->
   <section id="calculator" class="section section-cream">
     <div class="wrap">
-      <h2 class="section-title">Event Cost Calculator</h2>
+      <h2 class="section-title">Event Cost Calculator (Coming Soon)</h2>
       <p class="muted section-intro">Get a quick estimate based on guest count and selected menu items.</p>
 
       <div class="calculator-card">
@@ -462,7 +474,7 @@
     <div class="wrap">
       <div class="footer-left">
         <strong>Lavish Caterers & Decorators</strong><br>
-        Since 1990 • Karachi
+        Since 1995 • Karachi
       </div>
       <div class="footer-right">
         <small>© <span id="year"></span> Lavish Caterers & Decorators — All rights reserved</small>

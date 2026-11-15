@@ -1,39 +1,196 @@
 [
   {
-    "title": "Basic Package",
-    "price": "Rs. 700/head",
+    "title": "Menu #1",
+    "price": "Rs. 600 per head",
     "popular": false,
     "whatsappNumber": "923008292033",
     "features": [
-      "Starter + 1 main course + dessert",
-      "Professional buffet setup",
-      "Serving staff included",
-      "Ideal for small family events"
+      "Chicken Biryani / Pulao (Any One)",
+      "Chicken Badami Qorma / Karahi (Any One)",
+      "Taftan / Sheermal (Any One)",
+      "Milky Naan",
+      "Raita",
+      "Salad",
+      "Rabri Kheer / Lab-e-Shireen / Any Other"
     ]
   },
   {
-    "title": "Standard Wedding",
-    "price": "Rs. 1800-2500/head",
+    "title": "Menu #2",
+    "price": "Rs. 650 per head",
     "popular": true,
     "whatsappNumber": "923008292033",
     "features": [
-      "Multiple starters and premium mains",
-      "Customized menu consultation",
-      "Full service team on-site",
-      "Wedding buffet presentation",
-      "Dessert and beverage options"
+      "Beef Biryani / Pulao (Any One)",
+      "Chicken Karahi / Qorma (Any One)",
+      "Taftan / Sheermal (Any One)",
+      "Milky Naan",
+      "Raita",
+      "Salad",
+      "Rabri Kheer / Lab-e-Shireen / Any Other"
     ]
   },
   {
-    "title": "Premium Events",
-    "price": "Custom Pricing",
+    "title": "Menu #3",
+    "price": "Rs. 750 per head",
     "popular": false,
     "whatsappNumber": "923008292033",
     "features": [
-      "Fully bespoke event menu",
-      "Live stations and specialty dishes",
-      "Premium tableware and setup",
-      "Dedicated event coordinator"
+      "Wontons / Chimichangas (Any One)",
+      "Beef Biryani / Pulao (Any One)",
+      "Chicken Karahi / Qorma (Any One)",
+      "Taftan / Sheermal (Any One)",
+      "Milky Naan",
+      "Raita",
+      "Salad Bar",
+      "Rabri Kheer / Lab-e-Shireen / etc."
+    ]
+  },
+  {
+    "title": "Menu #4",
+    "price": "Rs. 950 per head",
+    "popular": false,
+    "whatsappNumber": "923008292033",
+    "features": [
+      "Wontons / Chimichangas (Any One)",
+      "BBQ Tikka – Behari / Balochi / Malai (Any One)",
+      "Beef Biryani / Pulao (Any One)",
+      "Chicken Karahi / Qorma (Any One)",
+      "Taftan / Sheermal (Any One)",
+      "Milky Naan",
+      "Raita",
+      "Salad Bar",
+      "Rabri Kheer / Lab-e-Shireen / etc."
+    ]
+  },
+  {
+    "title": "Menu #5",
+    "price": "Rs. 1,100 per head",
+    "popular": false,
+    "whatsappNumber": "923008292033",
+    "features": [
+      "Wontons / Chimichangas (Any One)",
+      "BBQ Tikka – Behari / Balochi / Malai / etc. (Any One)",
+      "Beef Biryani / Pulao (Any One)",
+      "Chicken Karahi / Qorma (Any One)",
+      "Taftan / Sheermal",
+      "Live Garlic Naan / Milky Naan",
+      "Raita",
+      "Salad Bar",
+      "Aloo Bukhara Chutney",
+      "Baingan Chutney",
+      "Mirch Chutney",
+      "Rabri Kheer / Lab-e-Shireen / etc.",
+      "Gulab Jamun"
+    ]
+  },
+  {
+    "title": "Menu #6",
+    "price": "Rs. 1,200 per head",
+    "popular": false,
+    "whatsappNumber": "923008292033",
+    "features": [
+      "Soup / Tea / Welcome Juice (Any One)",
+      "Wontons / Chimichangas / Roll (Any One)",
+      "BBQ Tikka – Behari / Balochi / Malai (Any One)",
+      "Beef Biryani / Pulao (Any One)",
+      "Chicken Karahi / Qorma (Any One)",
+      "Taftan / Sheermal (Any One)",
+      "Live Garlic Naan / Milky Naan",
+      "Raita",
+      "Salad Bar",
+      "Aloo Bukhara Chutney",
+      "Baingan Chutney",
+      "Mirch Chutney",
+      "Rabri Kheer / Lab-e-Shireen / etc.",
+      "Gulab Jamun"
+    ]
+  },
+  {
+    "title": "Menu #7",
+    "price": "Rs. 1,200 per head",
+    "popular": false,
+    "whatsappNumber": "923008292033",
+    "features": [
+      "Wontons / Chimichangas / etc. (Any One)",
+      "BBQ Tikka – Behari / Balochi / Malai / etc. (Any One)",
+      "Beef Biryani / Pulao (Any One)",
+      "Chicken Karahi / Qorma (Any One)",
+      "Taftan",
+      "Live Garlic Naan / Milky Naan (Any One)",
+      "Dahi Boondi / Chicken Haleem",
+      "Raita",
+      "Salad Bar",
+      "Aloo Bukhara Chutney",
+      "Baingan Chutney",
+      "Mirch Chutney",
+      "Rabri Kheer / Lab-e-Shireen (Any One)",
+      "Kulfi Falooda / Ice Cream (Any One)"
+    ]
+  },
+  {
+    "title": "Menu #8",
+    "price": "Rs. 1,400 per head",
+    "popular": false,
+    "whatsappNumber": "923008292033",
+    "features": [
+      "Wontons / Chimichangas / etc. (Any One)",
+      "Chicken Broast / Chicken Tempura (Any One)",
+      "BBQ Tikka – Behari / Balochi / Malai (Any One)",
+      "Beef Biryani / Pulao (Any One)",
+      "Chicken Karahi / Qorma (Any One)",
+      "Taftan",
+      "Milky Naan / Live Garlic Naan",
+      "Dahi Boondi / Chicken Haleem",
+      "Raita",
+      "Salad Bar",
+      "Rabri Kheer / Lab-e-Shireen (Any One)",
+      "Kulfi Falooda / Ice Cream (Any One)"
+    ]
+  },
+  {
+    "title": "Menu #9",
+    "price": "Rs. 1,600 per head",
+    "popular": false,
+    "whatsappNumber": "923008292033",
+    "features": [
+      "Wontons / Chimichangas (Any One)",
+      "Chicken Broast / Bhora Fry / Chicken Tempura (Any One)",
+      "BBQ Tikka – Behari / Balochi / Malai / etc. (Any One)",
+      "Beef Biryani / Pulao (Any One)",
+      "Mutton Kunna / Qorma / Karahi (Any One)",
+      "Taftan / Sheermal (Any One)",
+      "Milky Naan / Live Garlic Naan",
+      "Dahi Boondi / Chicken Haleem",
+      "Raita",
+      "Salad Bar",
+      "Aloo Bukhara Chutney",
+      "Baingan Chutney",
+      "Mirch Chutney",
+      "Rabri Kheer / Lab-e-Shireen (Any One)",
+      "Kulfi Falooda / Ice Cream (Any One)"
+    ]
+  },
+  {
+    "title": "Menu #10",
+    "price": "Rs. 1,800 per head",
+    "popular": false,
+    "whatsappNumber": "923008292033",
+    "features": [
+      "Wontons / Chimichangas (Any One)",
+      "Chicken Broast / Bhora Fry / Tempura (Any One)",
+      "BBQ Tikka – Behari / Balochi / Malai (Any One)",
+      "Fish Biscuits / Fish Fingers (Any One)",
+      "Beef Biryani / Pulao (Any One)",
+      "Mutton Kunna / Qorma / Karahi (Any One)",
+      "Taftan / Sheermal (Any One)",
+      "Milky Naan / Live Garlic Naan",
+      "Dahi Boondi / Chicken Haleem",
+      "Raita",
+      "Aloo Bukhara Chutney",
+      "Baingan Chutney",
+      "Mirch Chutney",
+      "Rabri Kheer / Lab-e-Shireen (Any One)",
+      "Kulfi Falooda / Ice Cream (Any One)"
     ]
   }
 ]
