@@ -126,6 +126,20 @@ body {
 .section { padding: 96px 0; }
 .section-light { background: #fffdfa; }
 .section-cream { background: linear-gradient(180deg, #f8f0ea 0%, #f3e7dc 100%); }
+.menu-pdf-page { min-height: calc(100vh - 96px); padding: 44px 0 72px; }
+.menu-pdf-header { margin-bottom: 20px; }
+.menu-pdf-header .section-title { margin-bottom: 8px; }
+.menu-pdf-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 18px; }
+.menu-pdf-viewer {
+  display: block;
+  width: 100%;
+  height: min(78vh, 1000px);
+  min-height: 480px;
+  border: 1px solid rgba(95, 17, 34, 0.14);
+  border-radius: var(--radius-md);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
 .section-title {
   margin: 0 0 14px;
   font-family: "Playfair Display", serif;
@@ -901,6 +915,8 @@ body {
   body { padding-top: 82px; }
   .wrap { padding: 20px; }
   .section { padding: 58px 0; }
+  .menu-pdf-page { min-height: calc(100vh - 82px); padding: 32px 0 48px; }
+  .menu-pdf-viewer { min-height: 360px; height: 70vh; }
   .brand-logo { width: 62px; height: 62px; }
   .brand-text .name { font-size: 20px; }
   .brand-text .tag { letter-spacing: 0.08em; }

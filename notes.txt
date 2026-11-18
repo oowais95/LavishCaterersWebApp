@@ -1,6 +1,9 @@
 run this locally by
 	>npx http-server
 
+run locally 
+	python -m http.server 8765
+
 > not a react proj as package.json does not exist 
 > changes reflected directly launching index.html
 

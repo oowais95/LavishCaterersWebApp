@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Per-Head Menu | Lavish Caterers &amp; Decorators</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Open+Sans:wght@300;400;600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/png" href="assets/images/lavish-logo.png">
+  <meta name="description" content="View Lavish Caterers' per-head menu packages.">
+</head>
+
+<body>
+  <header class="site-header">
+    <div class="wrap header-inner">
+      <a class="brand" href="index.html" aria-label="Lavish Caterers home">
+        <img class="brand-logo" src="assets/images/lavish-logo.png" alt="Lavish Caterers logo" />
+        <div class="brand-text">
+          <div class="name">Lavish Caterers</div>
+          <div class="tag">&amp; Decorators</div>
+        </div>
+      </a>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="index.html#menu" class="nav-link">Menu</a>
+        <a href="menuByPerHead.html" class="nav-link" aria-current="page">Per-Head PDF</a>
+        <a href="menuPdf.html" class="nav-link">Menu PDF</a>
+        <a href="billing.html" class="nav-link">Billing</a>
+      </nav>
+
+      <button id="navToggle" class="nav-toggle" aria-label="Open menu" aria-expanded="false">☰</button>
+    </div>
+  </header>
+
+  <main class="menu-pdf-page section section-cream">
+    <div class="wrap">
+      <div class="menu-pdf-header">
+        <h1 class="section-title">Per-Head Menu</h1>
+        <p class="muted">Browse our menu packages below. You can also open or download the PDF.</p>
+        <div class="menu-pdf-actions">
+          <a class="btn btn-primary" href="assets/PDFfiles/menuByPerHead.pdf" target="_blank"
+            rel="noopener noreferrer">Open PDF in a new tab</a>
+          <a class="btn btn-primary" href="assets/PDFfiles/menuByPerHead.pdf" download>Download menu PDF</a>
+        </div>
+      </div>
+
+      <iframe class="menu-pdf-viewer" src="assets/PDFfiles/menuByPerHead.pdf"
+        title="Lavish Caterers per-head menu PDF">
+        <p>Your browser cannot display PDFs. <a href="assets/PDFfiles/menuByPerHead.pdf">Open the menu PDF</a>.</p>
+      </iframe>
+    </div>
+  </main>
+
+  <script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -45,7 +45,7 @@ function initPackages() {
   if (!packagesGrid) return;
 
   const defaultWhatsAppNumber = "923008292033";
-  const localStorageKey = "lavishPackagesData";
+  const localStorageKey = "lavishPackagesDataV2";
 
   function normalizePackage(pkg) {
     return {
@@ -66,7 +66,7 @@ function initPackages() {
       if (pkg.popular) {
         const badge = document.createElement("span");
         badge.className = "popular-badge";
-        badge.textContent = "Most Popular";
+        // badge.textContent = "Most Popular";
         article.appendChild(badge);
       }
 
@@ -129,46 +129,10 @@ function initPackages() {
       }
       renderPackages(data.map(normalizePackage));
     })
-    .catch(function () {
-      renderPackages([
-        normalizePackage({
-          title: "Basic Package",
-          price: "Rs. 700/head",
-          popular: false,
-          whatsappNumber: defaultWhatsAppNumber,
-          features: [
-            "Starter + 1 main course + dessert",
-            "Professional buffet setup",
-            "Serving staff included",
-            "Ideal for small family events"
-          ]
-        }),
-        normalizePackage({
-          title: "Standard Wedding",
-          price: "Rs. 1800-2500/head",
-          popular: true,
-          whatsappNumber: defaultWhatsAppNumber,
-          features: [
-            "Multiple starters and premium mains",
-            "Customized menu consultation",
-            "Full service team on-site",
-            "Wedding buffet presentation",
-            "Dessert and beverage options"
-          ]
-        }),
-        normalizePackage({
-          title: "Premium Events",
-          price: "Custom Pricing",
-          popular: false,
-          whatsappNumber: defaultWhatsAppNumber,
-          features: [
-            "Fully bespoke event menu",
-            "Live stations and specialty dishes",
-            "Premium tableware and setup",
-            "Dedicated event coordinator"
-          ]
-        })
-      ]);
+    .catch(function (error) {
+      packagesGrid.textContent = "Menus couldn't be loaded. Please run the site from a local web server and try again.";
+      packagesGrid.setAttribute("role", "alert");
+      console.error("Unable to load package menus:", error);
     });
 }
 
